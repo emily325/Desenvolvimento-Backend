@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
+package com.example.ex;
 
-public class ilhaDeCalor {
+public class IlhaDeCalor {
     private int id;
     private String bairro;
     private String zona;
 
-    public ilhaDeCalor(){
+    public IlhaDeCalor(){
     }
 
-    public ilhaDeCalor(int id, String bairro, String zona){
+    public IlhaDeCalor(int id, String bairro, String zona){
         this.id = id;
         this.bairro = bairro;
         this.zona = zona;
@@ -38,15 +37,4 @@ public class ilhaDeCalor {
     public void setZona(String zona){
         this.zona = zona;
     }
-
-    public List getIlhasDeCalor() {
-        return ilhasDeCalor;
-    }
-
-    public void setIlhasDeCalor(List ilhasDeCalor) {
-        this.ilhasDeCalor = ilhasDeCalor;
-    }
-
-    
-
 }
