@@ -4,36 +4,35 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.model.Pet;
+import com.example.demo.model.Medico;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class PetRepository {
-    private static final int ZERO_BYTES = 0;
+public class MedicoRepository {
+    private static File arquivo = new File("src/main/resources/database/tb_medicos.json");
     private ObjectMapper objectMapper = new ObjectMapper();
-    private static File arquivo = new File("src/main/resources/database/tb_pets.json");
 
-    public List<Pet> getAll() throws Exception {
+    public List<Medico> getAll() throws Exception {
         if(!arquivo.exists()){
             arquivo.createNewFile();
         }
 
-        if(arquivo.length() > ZERO_BYTES){
+        if(arquivo.length() > 0){
             return objectMapper.readValue(arquivo, new TypeReference<ArrayList<Pet>>() {});
         }
-        return new ArrayList<>();
+            return new ArrayList<>();
     }
 
     public boolean save(Pet pet) throws Exception {
         List<Pet> pets = this.getAll();
 
-        for(Pet petNoBanco : pets){
-            if(pet.getId() == petNoBanco.getId()){
+        for(Pet medicoNoBanco : medicos){
+            if(medicoNoBanco.getId() == pet.getId()){
                 return false;
             }
         }
 
-        pets.add(pet);
+        medico.add(pet);
         objectMapper.writeValue(arquivo, pets);
         return true;
     }
